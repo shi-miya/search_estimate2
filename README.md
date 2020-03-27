@@ -37,8 +37,8 @@ Things you may want to cover:
 ## estimate
 |Column|Type|Options|
 |------|----|-------|
-|name|string|null: false||           [](1.案件名)
-|author|string|null: false||         [](2.作成者)
+|name|string|null: false|            [](1.案件名)
+|author|string|null: false|          [](2.作成者)
 |expiration_date|string||            [](3.見積有効期限)
 |payment_terms|string||              [](4.支払条件)
 |trade_price|integer|null: false|    [](5.卸価格)
@@ -49,7 +49,6 @@ Things you may want to cover:
 |profit_rate|integer|null: false|    [](10.粗利率)
 |cost_rate|integer|null: false|      [](11.原価率)
 |total_profit|integer|null: false|   [](12.粗利合計)
-
 |user_id|integer|foreign_key: true|
 |company_id|integer|foreign_key: true|
 ### Association
@@ -74,7 +73,7 @@ Things you may want to cover:
 |estimate_id|integer|null: false,foreign_key: true|
 |item_id|integer|null: false,foreign_key: true|
 ### Association
-- belongs_to :proposal
+- belongs_to :estimate
 - belongs_to :item
 
 ## item
