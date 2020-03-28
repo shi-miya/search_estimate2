@@ -1,0 +1,27 @@
+= form_with model: @estimate, url: new_estimate_path do |f|
+  %tr
+    =  f.fields_for :items do |i|
+      %td
+        = i.number_field :code, class:"no"
+      %td
+        = i.number_field :code, class:"code"
+      %td 
+        = i.text_field :maker, class:"maker"
+      %td 
+        = i.text_field :name, class:"itemName"
+      %td 
+        = i.text_field :product_number, class:"productNumber"
+      %td 
+        = i.text_field :amount, class:"amount"
+      %td 
+        = f.text_field :unit, class:"unit"
+      %td 
+        = i.text_field :retail_price, class:"retailPrice"
+      -# #以下仮置き中
+      %td 
+        = f.text_field :unit, class:"retailPrice"
+      %td 
+        = f.text_field :unit, class:"retailPrice"
+      %td 
+        = f.text_field :name, class:"itemNote"
+        -# ここまで

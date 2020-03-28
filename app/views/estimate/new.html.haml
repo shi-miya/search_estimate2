@@ -1,0 +1,59 @@
+= render "shared/header"
+.newEstimateMain  
+  = form_with model: @estimate, url: new_estimate_path do |f|
+    .headBox
+      .headBox__top
+        .title
+          %h2 案件名
+          = f.text_field :name, class:"proposalName", placeholder:"type a new proposal"
+        .employee
+          %h2 担当者
+          = f.collection_select :employee_id, Employee.all, :id, :name, class:"proposalEmployee"
+      .headBox__middle
+        .customer
+          %h2 ユーザー名
+          = f.text_field :customer, class:"customerName", placeholder:"type a customer_name"
+        .author
+          %h2 作成者
+          = f.collection_select :employee_id, Employee.all, :id, :name, class:"proposalAuthor"
+      .headBox__middle
+        .customer
+          %h2 ユーザー名
+          = f.text_field :customer, class:"customerName", placeholder:"type a customer_name"
+        .author
+          %h2 作成者
+          = f.collection_select :employee_id, Employee.all, :id, :name, class:"estiamteAuthor"
+  .tableBox
+  %table{:border => "1"}
+    %tr.cellList
+      %th.cell1 No. 
+      %th.cell 注文CD 
+      %th.cell メーカー名
+      %th.cell 品名
+      %th.cell 品番
+      %th.cell 数量
+      %th.cell 単位
+      %th.cell 定価
+      %th.cell お渡し価格
+      %th.cell 金額
+      %th.cell 備考欄
+
+    = render "shared/table"
+    = render "shared/table"
+    = render "shared/table"
+    = render "shared/table"
+    = render "shared/table"
+    = render "shared/table"
+    = render "shared/table"
+    = render "shared/table"
+    = render "shared/table"
+    = render "shared/table"
+    = render "shared/table"
+    = render "shared/table"
+    = form_with model: @estimate, url: new_estimate_path do |f|
+      %th.bottomNote 備考 
+      %td 
+        = f.text_area :name, class:".inputBottomNote "
+      %td
+      %td
+      %td
