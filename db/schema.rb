@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_29_000155) do
+ActiveRecord::Schema.define(version: 2020_03_29_015407) do
 
   create_table "companies", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "code", null: false
@@ -41,6 +41,15 @@ ActiveRecord::Schema.define(version: 2020_03_29_000155) do
     t.index ["user_id"], name: "index_estimates_on_user_id"
   end
 
+  create_table "estimates_items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.bigint "estimate_id"
+    t.bigint "item_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["estimate_id"], name: "index_estimates_items_on_estimate_id"
+    t.index ["item_id"], name: "index_estimates_items_on_item_id"
+  end
+
   create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "code", null: false
     t.string "maker", null: false
@@ -68,4 +77,6 @@ ActiveRecord::Schema.define(version: 2020_03_29_000155) do
 
   add_foreign_key "estimates", "companies"
   add_foreign_key "estimates", "users"
+  add_foreign_key "estimates_items", "estimates"
+  add_foreign_key "estimates_items", "items"
 end
