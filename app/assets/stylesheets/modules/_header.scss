@@ -1,0 +1,27 @@
+.header {
+  width: 100%;
+  .headerBox {
+    background-color: darkblue;
+    height: 60px;
+    color: white;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    line-height: 60px;
+    &__left {
+      font-size: 30px;
+      font-weight: bold;
+    }
+    &__right {
+      font-size: 20px;
+      a {
+      text-decoration: none;
+      background-color: white;
+      color: darkblue;
+      margin-left: 15px;
+      border: white solid 1px;
+      padding: 10px;
+      }
+    }
+  }
+}

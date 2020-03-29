@@ -1,0 +1,81 @@
+@mixin inputTitle {
+  height: 40px;
+  line-height: 40px;
+  display: flex;
+  font-size: 14px;
+}
+@mixin smallCell {
+  width: 60px;
+}
+@mixin priceCell {
+  width: 100px;
+}
+
+.newEstimateMain {
+  // width: 100%;
+  padding: 10px;
+  .headBox {
+    // background-color: yellowgreen;
+    height: 200px;
+    h2 {
+      background-color: black;
+      color: white;
+      width: 80px;
+      text-align: center;
+    }
+    &__top {
+      display: flex;
+      padding-top: 10px;
+      margin-bottom: 5px;
+      .title {
+        @include inputTitle;
+      }
+      .employee {
+        @include inputTitle;
+      }
+    }
+    &__middle {
+      display: flex;
+      .customer {
+        @include inputTitle;
+      }
+      .author {
+        @include inputTitle;
+      }
+    }
+  }
+  table {
+    width: 100px;
+    .cellList {
+      width: 20%;
+      
+      th {
+        text-align: center;
+        height: 40px;
+      }
+      .inputBottomNote {
+        @include priceCell;
+      }
+    }
+  }
+   
+}
+// テーブルテンプレート
+.no {
+  @include smallCell;
+}
+.amount, .unit {
+  @include smallCell;
+}
+.maker {
+  width: 100px;
+}
+.itemName {
+  width: 250px;
+}
+.productNumber {
+  width: 250px;
+}
+.code, .retailPrice {
+  @include priceCell;
+}
