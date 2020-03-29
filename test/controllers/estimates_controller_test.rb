@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class EstimateControllerTest < ActionDispatch::IntegrationTest
+class EstimatesControllerTest < ActionDispatch::IntegrationTest
   # test "the truth" do
   #   assert true
   # end

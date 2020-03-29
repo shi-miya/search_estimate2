@@ -1,4 +1,4 @@
-class EstimateController < ApplicationController
+class EstimatesController < ApplicationController
   before_action :set_new_estimate, only: [:new]
 
   def index 
@@ -15,4 +15,6 @@ class EstimateController < ApplicationController
   def set_new_estimate
     @estimate = Estimate.new
   end
+
+
 end

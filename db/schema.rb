@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_03_28_040012) do
+ActiveRecord::Schema.define(version: 2020_03_29_000155) do
 
   create_table "companies", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "code", null: false
@@ -19,6 +19,26 @@ ActiveRecord::Schema.define(version: 2020_03_28_040012) do
     t.string "employee", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "estimates", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "author", null: false
+    t.string "expiration_date"
+    t.string "payment_terms"
+    t.integer "trade_price", null: false
+    t.integer "total_price", null: false
+    t.integer "note"
+    t.integer "amount", null: false
+    t.integer "profit_rate", null: false
+    t.integer "cost_rate", null: false
+    t.integer "total_profit", null: false
+    t.bigint "user_id"
+    t.bigint "company_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["company_id"], name: "index_estimates_on_company_id"
+    t.index ["user_id"], name: "index_estimates_on_user_id"
   end
 
   create_table "items", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -46,4 +66,6 @@ ActiveRecord::Schema.define(version: 2020_03_28_040012) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "estimates", "companies"
+  add_foreign_key "estimates", "users"
 end
