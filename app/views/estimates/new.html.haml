@@ -3,46 +3,59 @@
   = form_with model: @estimate, url: new_estimate_path do |f|
     =  f.fields_for :items do |i|
       .headBox
-        .headBox__top
-          .companyCode
-            %h2 店コード
-            = i.number_field :code, class:"companyCode"
-          .companyName
-            %h2 販売店名
-            = i.number_field :name, class:"companyName"
-          .title
-            %h2 案件名
-            = f.text_field :name, class:"proposalName", placeholder:"type a new proposal"
+        .headBox__first
           .employee
-            %h2 担当者
-            = f.collection_select :employee_id, Employee.all, :id, :name, class:"proposalEmployee"
-        .headBox__middle
-          .customer
-            %h2 仮置き
-            
-          .author
+            .author
             %h2 作成者
             = f.collection_select :employee_id, Employee.all, :id, :name, class:"estimateAuthor"
-        .headBox__middle
-          .customer
-            %h2 ユーザー名
-            = f.text_field :customer, class:"customerName", placeholder:"type a customer_name"
-          .author
-            %h2 作成者
-            = f.collection_select :employee_id, Employee.all, :id, :name, class:"estiamteAuthor"
-      .tableBox
+            %h2 担当者
+            = f.collection_select :employee_id, Employee.all, :id, :name, class:"proposalEmployee"
+        .headBox__second
+          .headBox__leftTop
+            .companyCode
+              %h2 店コード
+              = i.number_field :code, class:"companyCode"
+            .companyNameBox
+              %h2#explain 販売店名 
+              .companyNameBox2
+                = i.text_field :name, class:"companyName"
+                = i.text_field :name, class:"companyPerson_in_charge"
+          .headBox__rightTop
+            .title
+              %h2 案件名
+              = f.text_field :name, class:"proposalName", placeholder:"type a new proposal"
+            .expiration_date
+              %h2 見積条件
+              = f.text_field :expiration_date, class:"expiration_date"
+            .payment_terms
+              %h2 支払条件
+              = f.text_field :payment_terms, class:"payment_terms"
+            
+        -# .headBox__middle
+        -#   .customer
+        -#     %h2 ユーザー名
+        -#     = f.text_field :customer, class:"customerName", placeholder:"type a customer_name"
+        -#   .author
+        -#     %h2 作成者
+        -#     = f.collection_select :employee_id, Employee.all, :id, :name, class:"estiamteAuthor"
       %table{:border => "1"}
         %tr.cellList
           %th.cell1 No. 
-          %th.cell 注文CD 
-          %th.cell メーカー名
-          %th.cell 品名
-          %th.cell 品番
-          %th.cell 数量
-          %th.cell 単位
-          %th.cell 定価
-          %th.cell お渡し価格
+          %th.cell2 注文CD 
+          %th.cell3 メーカー名
+          %th.cell4 品名
+          %th.cell5 品番
+          %th.cell6 数量
+          %th.cell7 単位
+          %th.cell8 定価
+          %th.cell 単価率
+          %th.cell 単価
           %th.cell 金額
+          %th.cell 粗利単価
+          %th.cell 原価
+          %th.cell 原価掛率
+          %th.cell 粗利合計
+          %th.cell 粗利率
           %th.cell 備考欄
 
         = render "shared/table"
@@ -57,10 +70,10 @@
         = render "shared/table"
         = render "shared/table"
         = render "shared/table"
-        = form_with model: @estimate, url: new_estimate_path do |f|
-          %th.bottomNote 備考 
-          %td 
-            = f.text_area :name, class:".inputBottomNote "
-          %td
-          %td
-          %td
+        -# = form_with model: @estimate, url: new_estimate_path do |f|
+        -#   %th.bottomNote 備考 
+        -#   %td 
+        -#     = f.text_area :name, class:".inputBottomNote "
+        -#   %td
+        -#   %td
+        -#   %td

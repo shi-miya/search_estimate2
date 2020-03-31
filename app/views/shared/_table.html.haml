@@ -2,7 +2,7 @@
   %tr
     =  f.fields_for :items do |i|
       %td
-        = i.number_field :code, class:"no"
+        %input.no{:value => ""}
       %td
         = i.number_field :code, class:"code"
       %td 
@@ -19,9 +19,21 @@
         = i.text_field :retail_price, class:"retailPrice"
       -# #以下仮置き中
       %td 
-        = f.text_field :unit, class:"retailPrice"
+        = f.text_field :profit_rate, class:"profitRate"
       %td 
-        = f.text_field :unit, class:"retailPrice"
+        = f.text_field :trade_price, class:"tradePrice"
+      %td 
+        = f.text_field :total_price, class:"totalPrice"
+      %td 
+        = f.text_field :name, class:"itemNote"
+      %td 
+        = f.text_field :name, class:"itemNote"
+      %td 
+        = f.text_field :name, class:"itemNote"
+      %td 
+        = f.text_field :name, class:"itemNote"
+      %td 
+        = f.text_field :name, class:"itemNote"
       %td 
         = f.text_field :name, class:"itemNote"
         -# ここまで

@@ -4,6 +4,9 @@
   display: flex;
   font-size: 14px;
 }
+@mixin verySmallCell {
+  width: 30px;
+}
 @mixin smallCell {
   width: 60px;
 }
@@ -12,10 +15,8 @@
 }
 
 .newEstimateMain {
-  // width: 100%;
   padding: 10px;
   .headBox {
-    // background-color: yellowgreen;
     height: 200px;
     h2 {
       background-color: black;
@@ -23,24 +24,25 @@
       width: 80px;
       text-align: center;
     }
-    &__top {
-      display: flex;
-      padding-top: 10px;
-      margin-bottom: 5px;
-      .title {
-        @include inputTitle;
-      }
-      .employee {
-        @include inputTitle;
-      }
+    .companyCode, .companyName, .companyPerson_in_charge, .title, .employee, .expiration_date, .payment_terms {
+      @include inputTitle;
     }
-    &__middle {
+    &__first {
+      .employee {
+        display: flex;
+      }      
+    }
+    &__second {
       display: flex;
-      .customer {
-        @include inputTitle;
-      }
-      .author {
-        @include inputTitle;
+      .headBox__leftTop {
+
+        .companyNameBox {
+          display: flex;
+          #explain {
+            height: 80px;
+            line-height: 80px;
+          }
+        }
       }
     }
   }
@@ -61,10 +63,13 @@
    
 }
 // テーブルテンプレート
-.no {
-  @include smallCell;
+.no, .unit {
+  @include verySmallCell;
 }
-.amount, .unit {
+.code {
+  width: 75px;
+}
+.amount {
   @include smallCell;
 }
 .maker {
@@ -76,6 +81,6 @@
 .productNumber {
   width: 250px;
 }
-.code, .retailPrice {
+.retailPrice {
   @include priceCell;
 }
